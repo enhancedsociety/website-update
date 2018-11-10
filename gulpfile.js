@@ -1,4 +1,10 @@
-const {src, task}= require('gulp');
-const ghPages = require('gulp-gh-pages');
+ var gulp   = require('gulp');
+  var deploy = require('gulp-gh-pages');
 
-task('deploy', () => src('./dist/**/*').pipe(ghPages()));
+  gulp.task('deploy', function () {
+    return gulp.src("./prod/**/*")
+      .pipe(deploy({ 
+        remoteUrl: "https://github.com/enhancedsociety/website-update.github.io.git",
+        branch: "master"
+      }))
+  });
