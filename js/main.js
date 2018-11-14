@@ -15,9 +15,54 @@ $(document).ready(function() {
       }
     });
 
-
+    startPeopleAnimation();
+    initScrollMagic();
 
 });
+
+function startPeopleAnimation(){
+
+  $("#peopleBlock" + 1 + " img").each(function(index) {
+    $("#peopleBlock" + 1).children().eq(index).animate({opacity:1},{duration:1500});
+  });
+
+  var numerOfGroups = 3;
+  var currentGroup = 2;
+
+  setInterval(function(){ animatePeople() }, 8000);
+  
+  function animatePeople() {
+    
+    if(currentGroup > numerOfGroups){
+      
+    $("#peopleBlock" + (currentGroup-1) + " img").each(function(index) {
+      $("#peopleBlock" + (currentGroup-1)).children().eq(index).animate({opacity:0},{duration:850});
+    });
+      currentGroup = 1;
+
+    }
+
+     
+    $("#peopleBlock" + currentGroup + " img").each(function(index) {
+      $("#peopleBlock" + currentGroup).children().eq(index).delay(850).animate({opacity:1},{duration:1500 * ((index+1)/3)});
+    });
+
+    $("#peopleBlock" + (currentGroup-1) + " img").each(function(index) {
+      $("#peopleBlock" + (currentGroup-1)).children().eq(index).animate({opacity:0},{duration:850});
+    });
+
+    currentGroup ++;
+    
+  }
+    
+
+
+
+  // $('#peopleBlock1 img').animate({opacity:1},{duration:500});
+  // $('#peopleBlock2').animate({opacity:1},{duration:1500})
+  // $('#peopleBlock3').animate({opacity:1},{duration:1500})
+  
+}
 
 function changeSandbox(a){
   
@@ -25,31 +70,36 @@ function changeSandbox(a){
     default:
     case 1:
       $('#sandboxSolsaButton').addClass('active');
-      $('#sandboxSSOTButton').removeClass('active');
-      $('#sandboxCollaborateButton').removeClass('active');
+      $('#sandboxWeb3Button').removeClass('active');
+      $('#sandboxRustETHButton').removeClass('active');
 
       $('#sandboxSolsa').addClass('active');
-      $('#sandboxSSOT').removeClass('active');
-      $('#sandboxCollaborate').removeClass('active');
-      
+      $('#sandboxWeb3').removeClass('active');
+      $('#sandboxRustETH').removeClass('active');
+
+      $("#sandboxGitHubButton").attr("href", "https://github.com/enhancedsociety/solsa");
     break;
     case 2:
       $('#sandboxSolsaButton').removeClass('active');
-      $('#sandboxSSOTButton').addClass('active');
-      $('#sandboxCollaborateButton').removeClass('active');
+      $('#sandboxWeb3Button').addClass('active');
+      $('#sandboxRustETHButton').removeClass('active');
 
       $('#sandboxSolsa').removeClass('active');
-      $('#sandboxSSOT').addClass('active');
-      $('#sandboxCollaborate').removeClass('active');
+      $('#sandboxWeb3').addClass('active');
+      $('#sandboxRustETH').removeClass('active');
+
+      $("#sandboxGitHubButton").attr("href", "https://github.com/enhancedsociety/platform-investigations");
     break;
     case 3:
       $('#sandboxSolsaButton').removeClass('active');
-      $('#sandboxSSOTButton').removeClass('active');
-      $('#sandboxCollaborateButton').addClass('active');
+      $('#sandboxWeb3Button').removeClass('active');
+      $('#sandboxRustETHButton').addClass('active');
 
       $('#sandboxSolsa').removeClass('active');
-      $('#sandboxSSOT').removeClass('active');
-      $('#sandboxCollaborate').addClass('active');
+      $('#sandboxWeb3').removeClass('active');
+      $('#sandboxRustETH').addClass('active');
+      
+      $("#sandboxGitHubButton").attr("href", "https://github.com/enhancedsociety/rust-eth-tools");
     break;
   }
   
@@ -82,8 +132,6 @@ var hamburger = {
 hamburger.navToggle.addEventListener('click', function(e) { hamburger.doToggle(e); });
 // hamburger.navItem.addEventListener('click', function(e) { hamburger.doToggle(e); });
 
-
-
 function goToAnchor(anchor){
   var loc = document.location.toString().split('#')[0];
   document.location = loc + '#' + anchor;
@@ -107,4 +155,43 @@ function enableScroll() {
     window.onwheel = null; 
     window.ontouchmove = null;  
     document.onkeydown = null;  
+}
+
+
+function initScrollMagic() {
+
+  let controller = new ScrollMagic.Controller();
+
+  let whatWeDoAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.85,
+    triggerElement: '.what-we-do',
+    reverse: false
+  }).addTo(controller)
+    .on("enter", function (event) {      
+      $('.what-we-do .background').addClass('animate');
+      $('.what-we-do .block').addClass('animate');
+    });
+
+  let blockchainProjectsAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.7,
+    triggerElement: '.blockchain-projects',
+    reverse: false
+  }).addTo(controller)
+    .on("enter", function (event) {
+      
+      $('.blockchain-projects .projects-list').addClass('animate');
+    });
+
+
+  let smartEquityAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.85,
+    triggerElement: '.smart-equity',
+    reverse: false
+  }).addTo(controller)
+    .on("enter", function (event) {      
+      $('.smart-equity .phone').addClass('animate');
+    });
+
+
+
 }
