@@ -15,10 +15,9 @@ $(document).ready(function() {
       }
     });
 
-
+    initScrollMagic();
 
 });
-
 
 var hamburger = {
   navToggle: document.querySelector('.nav-toggle'),
@@ -44,9 +43,6 @@ var hamburger = {
 };
 
 hamburger.navToggle.addEventListener('click', function(e) { hamburger.doToggle(e); });
-// hamburger.navItem.addEventListener('click', function(e) { hamburger.doToggle(e); });
-
-
 
 function goToAnchor(anchor){
   var loc = document.location.toString().split('#')[0];
@@ -71,4 +67,43 @@ function enableScroll() {
     window.onwheel = null; 
     window.ontouchmove = null;  
     document.onkeydown = null;  
+}
+
+
+function initScrollMagic() {
+
+  let controller = new ScrollMagic.Controller();
+
+  let iconsAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.85,
+    triggerElement: '.icons',
+    reverse: false
+  }).addTo(controller)
+    .on("enter", function (event) {      
+      $('.icons .background').addClass('animate');
+      $('.icons .block').addClass('animate');
+    });
+
+  let blockchainProjectsAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.7,
+    triggerElement: '.blockchain-projects',
+    reverse: false
+  }).addTo(controller)
+    .on("enter", function (event) {
+      
+      $('.blockchain-projects .projects-list').addClass('animate');
+    });
+
+
+  let smartEquityAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.85,
+    triggerElement: '.smart-equity',
+    reverse: false
+  }).addTo(controller)
+    .on("enter", function (event) {      
+      $('.smart-equity .phone').addClass('animate');
+    });
+
+
+
 }
