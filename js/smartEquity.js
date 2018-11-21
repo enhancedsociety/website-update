@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-  
   //ANIMATES ANCHOR SCROLLING
     $('.anchor-click').click(function() {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -8,7 +7,7 @@ $(document).ready(function() {
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
         if (target.length) {
           $('html,body').animate({
-            scrollTop: target.offset().top - 50
+            scrollTop: target.offset().top - 70
           },250);
           return false;
         }
@@ -16,7 +15,6 @@ $(document).ready(function() {
     });
 
     initScrollMagic();
-
 });
 
 var hamburger = {
@@ -74,36 +72,36 @@ function initScrollMagic() {
 
   let controller = new ScrollMagic.Controller();
 
+  let introAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.7,
+    triggerElement: '.what',
+    reverse: false
+  }).addTo(controller)
+    .on("enter", function (event) {
+      
+      $('.what .pictures .phone').addClass('animate');
+    });
+
   let iconsAnimation = new ScrollMagic.Scene({
-    triggerHook: 0.85,
+    triggerHook: 0.55,
     triggerElement: '.icons',
     reverse: false
   }).addTo(controller)
     .on("enter", function (event) {      
       $('.icons .background').addClass('animate');
-      $('.icons .block').addClass('animate');
-    });
-
-  let blockchainProjectsAnimation = new ScrollMagic.Scene({
-    triggerHook: 0.7,
-    triggerElement: '.blockchain-projects',
-    reverse: false
-  }).addTo(controller)
-    .on("enter", function (event) {
-      
-      $('.blockchain-projects .projects-list').addClass('animate');
+      $('.icons .content-grid .item').addClass('animate');
     });
 
 
-  let smartEquityAnimation = new ScrollMagic.Scene({
-    triggerHook: 0.85,
-    triggerElement: '.smart-equity',
+
+  let packagePhoneAnimation = new ScrollMagic.Scene({
+    triggerHook: 0.75,
+    triggerElement: '.package',
     reverse: false
   }).addTo(controller)
     .on("enter", function (event) {      
-      $('.smart-equity .phone').addClass('animate');
+      $('.package .phone').addClass('animate');
+      $('.package a.sign-up').addClass('animate');
     });
-
-
 
 }

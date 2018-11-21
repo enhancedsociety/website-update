@@ -312,7 +312,7 @@ p {
 
 @media only screen and (max-width: 768px) {
   .intro .intro-background {
-    height: 530px;
+    height: 450px;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
     .intro .intro-background .header {
       padding: 20px 30px; }
@@ -322,14 +322,17 @@ p {
       .intro .intro-background .header .main-menu {
         display: none; }
     .intro .intro-background .content {
-      margin-top: 75px;
+      margin-top: 95px;
       padding: 0 30px; }
       .intro .intro-background .content h1, .intro .intro-background .content h2 {
+        font-size: 30px;
         text-align: center; }
       .intro .intro-background .content h2 {
         margin-top: 10px; }
       .intro .intro-background .content p {
-        width: 100%; }
+        margin-top: 30px;
+        width: 100%;
+        max-width: 450px; }
     .intro .intro-background .shapes-left {
       display: none; }
     .intro .intro-background .shapes-right {
@@ -349,264 +352,71 @@ p {
     .sticky-header.nav-down {
       top: -120px; } }
 
-.journey {
+.what {
   display: flex;
   flex-flow: row;
+  justify-content: center;
   margin: auto;
   width: 860px;
   height: 500px; }
-  .journey .content {
+  .what .content {
     display: flex;
     flex-flow: column;
     align-content: flex-end;
-    margin-top: 70px;
-    width: 440px; }
-    .journey .content h3 {
-      text-align: right;
-      color: #0398e1; }
-    .journey .content b {
-      color: #0398e1; }
-    .journey .content p {
-      align-self: flex-end;
+    margin-top: 60px;
+    width: 340px; }
+    .what .content h3 {
+      font-size: 22px;
+      font-weight: 800;
       color: #0398e1;
-      text-align: right;
-      max-width: 300px;
-      margin-top: 30px; }
-  .journey .phone {
+      margin-top: 5px; }
+    .what .content h4 {
+      font-size: 22px;
+      color: #39575f; }
+    .what .content p {
+      color: #39575f;
+      margin-bottom: 15px; }
+  .what .pictures .phone {
     width: 315px;
-    margin-left: 30px; }
+    transform: rotate(65deg) translateY(0);
+    transform-origin: 0 100%;
+    transition: transform 0.55s cubic-bezier(0.87, -0.41, 0.15, 1.2); }
+    .what .pictures .phone.animate {
+      transform: rotate(0deg) translateY(0); }
 
 @media only screen and (max-width: 768px) {
-  .journey {
+  .what {
     flex-flow: column;
     width: calc(100% - 60px);
     height: auto;
     padding: 0 30px; }
-    .journey .content {
-      width: auto; }
-      .journey .content h3 {
-        text-align: center; }
-      .journey .content p {
+    .what .content {
+      align-items: center;
+      justify-content: center;
+      width: 100%; }
+      .what .content h3, .what .content h4 {
         text-align: center;
-        max-width: 100%;
-        margin-top: 30px; }
-    .journey .pictures {
-      position: relative;
-      height: 300px;
+        max-width: 500px; }
+      .what .content p {
+        text-align: center;
+        max-width: 500px;
+        margin-top: 0px; }
+    .what .pictures {
+      display: flex;
+      align-items: center;
       margin: 30px 0; }
-      .journey .pictures .block-1,
-      .journey .pictures .block-2,
-      .journey .pictures .block-3 {
-        position: absolute;
-        display: flex;
-        flex-flow: row;
-        flex-wrap: wrap;
-        top: 0;
-        left: 0; }
-        .journey .pictures .block-1 img.big,
-        .journey .pictures .block-2 img.big,
-        .journey .pictures .block-3 img.big {
-          height: calc(50% - 10px);
-          width: calc(50% - 10px);
-          margin: 5px; }
-        .journey .pictures .block-1 img.med,
-        .journey .pictures .block-2 img.med,
-        .journey .pictures .block-3 img.med {
-          height: calc(50% - 10px);
-          width: calc(50% - 10px);
-          margin: 5px; }
-        .journey .pictures .block-1 img:nth-child(1),
-        .journey .pictures .block-2 img:nth-child(1),
-        .journey .pictures .block-3 img:nth-child(1) {
-          position: relative;
-          top: 0;
-          left: 0; }
-        .journey .pictures .block-1 img:nth-child(2),
-        .journey .pictures .block-2 img:nth-child(2),
-        .journey .pictures .block-3 img:nth-child(2) {
-          position: relative;
-          top: 0;
-          left: 0; }
-        .journey .pictures .block-1 img:nth-child(3),
-        .journey .pictures .block-2 img:nth-child(3),
-        .journey .pictures .block-3 img:nth-child(3) {
-          position: relative;
-          top: 0;
-          left: 0; }
-        .journey .pictures .block-1 img:nth-child(4),
-        .journey .pictures .block-2 img:nth-child(4),
-        .journey .pictures .block-3 img:nth-child(4) {
-          position: relative;
-          top: 0;
-          left: 0; } }
+      .what .pictures .phone {
+        transform: rotate(0deg) translateY(0);
+        margin: auto;
+        width: 315px; } }
 
 .icons {
-  position: relative;
-  height: 350px; }
-  .icons .background {
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
-    height: 325px;
-    width: 100%;
-    background-color: #f7f8f8;
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
-    transition: clip-path 0.75s cubic-bezier(0.87, -0.41, 0.19, 1.44); }
-    .icons .background.animate {
-      clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%); }
-  .icons .content {
-    display: flex;
-    flex-flow: row;
-    width: 860px;
-    margin: auto; }
-    .icons .content .block {
-      opacity: 0;
-      display: flex;
-      flex-flow: column;
-      align-items: center;
-      margin: 0 25px;
-      transform: translateY(30px);
-      transition: all 0.35s cubic-bezier(0.87, -0.41, 0.19, 1.44);
-      transition-delay: 0.35s; }
-      .icons .content .block:nth-child(2) {
-        transition-delay: .60s; }
-      .icons .content .block:nth-child(3) {
-        transition-delay: .85s; }
-      .icons .content .block.animate {
-        opacity: 1;
-        transform: translateY(0); }
-      .icons .content .block h4 {
-        text-align: center; }
-        .icons .content .block h4 span {
-          color: #0398e1; }
-      .icons .content .block img {
-        width: 90px;
-        height: 90px;
-        margin: 10px 0; }
-      .icons .content .block p {
-        font-weight: 300;
-        font-size: 13px;
-        text-align: center; }
-
-@media only screen and (max-width: 768px) {
-  .icons {
-    height: auto; }
-    .icons .background {
-      position: absolute;
-      z-index: -1;
-      bottom: 0;
-      height: 85%;
-      width: 100%; }
-      .icons .background.animate {
-        clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    .icons .content {
-      flex-flow: column;
-      width: calc(100% - 60px);
-      padding: 50px 0; }
-      .icons .content .block {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        margin: 25px 0; }
-        .icons .content .block h4 {
-          text-align: center; }
-        .icons .content .block img {
-          width: 90px;
-          height: 90px;
-          margin: 10px 0; }
-        .icons .content .block p {
-          font-weight: 300;
-          font-size: 13px;
-          text-align: center;
-          max-width: 220px; } }
-
-.what-it-is {
-  position: relative;
-  width: 100%;
-  overflow-x: hidden; }
-  .what-it-is .background {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    background-image: url(../assets/images/backgrounds/blockchain_projects.jpg);
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 490px;
-    width: 100%; }
-  .what-it-is .content {
-    display: flex;
-    flex-flow: row;
-    align-items: flex-start;
-    width: 860px;
-    margin: 0 auto;
-    padding: 85px 0; }
-    .what-it-is .content .content-text {
-      display: flex;
-      flex-flow: column;
-      flex-grow: 1;
-      width: auto;
-      margin-right: 80px; }
-      .what-it-is .content .content-text h3 {
-        color: #ffffff; }
-      .what-it-is .content .content-text h4 {
-        margin-top: 20px;
-        font-size: 16px;
-        text-transform: uppercase;
-        font-weight: 300;
-        color: #ffffff; }
-        .what-it-is .content .content-text h4 b {
-          color: #ffffff; }
-      .what-it-is .content .content-text p {
-        margin-top: 5px;
-        text-align: left;
-        color: #ffffff; }
-  .what-it-is .phone {
-    margin-top: -50px;
-    width: 300px;
-    height: auto; }
-
-@media only screen and (max-width: 768px) {
-  .what-it-is {
-    height: auto;
-    /* optional: show position indicator in red */ }
-    .what-it-is .background {
-      height: 420px; }
-    .what-it-is .content {
-      flex-flow: column;
-      width: calc(100% - 60px);
-      padding: 50px 0; }
-      .what-it-is .content h3 {
-        color: #ffffff; }
-      .what-it-is .content p {
-        text-align: center;
-        margin-top: 20px;
-        color: #31C0C8; }
-      .what-it-is .content .content-text {
-        align-items: center;
-        margin-right: 0; }
-        .what-it-is .content .content-text h4, .what-it-is .content .content-text p {
-          text-align: center; }
-    .what-it-is .phone {
-      margin-top: 20px;
-      align-self: center;
-      width: 200px; }
-    .what-it-is ::-webkit-scrollbar {
-      width: 0px;
-      /* remove scrollbar space */
-      background: transparent;
-      /* optional: just make scrollbar invisible */ }
-    .what-it-is ::-webkit-scrollbar-thumb {
-      background: transparent; } }
-
-.what-can-i-do {
   position: relative;
   display: flex;
   flex-flow: column;
   width: 100%;
   margin: 0; }
-  .what-can-i-do .background {
+  .icons .background {
     position: absolute;
     z-index: -1;
     bottom: 0;
@@ -614,61 +424,87 @@ p {
     width: 100%;
     left: 0;
     background-color: #f7f8f8;
-    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%); }
-  .what-can-i-do .content-grid {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    transition: clip-path 0.75s cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+    .icons .background.animate {
+      clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%); }
+  .icons .content-grid {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
     justify-content: space-between;
     width: 860px;
     margin-top: 30px; }
-    .what-can-i-do .content-grid .item {
-      width: 45%; }
-      .what-can-i-do .content-grid .item .title {
-        color: #0398e1;
-        text-transform: uppercase;
-        font-size: 18px;
-        font-weight: 500; }
-      .what-can-i-do .content-grid .item .description {
+    .icons .content-grid .item {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      width: 33%;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.75s cubic-bezier(0.87, -0.41, 0.19, 1.44);
+      transition-delay: 0.30s; }
+      .icons .content-grid .item:nth-child(2) {
+        transition-delay: .35s; }
+      .icons .content-grid .item:nth-child(3) {
+        transition-delay: .40s; }
+      .icons .content-grid .item:nth-child(4) {
+        transition-delay: .45s; }
+      .icons .content-grid .item:nth-child(5) {
+        transition-delay: .50s; }
+      .icons .content-grid .item:nth-child(6) {
+        transition-delay: .55s; }
+      .icons .content-grid .item.animate {
+        opacity: 1;
+        transform: translateY(0); }
+      .icons .content-grid .item img {
+        width: 150px;
+        margin-bottom: 15px; }
+      .icons .content-grid .item .description {
         font-size: 13px;
         font-weight: 400;
+        text-align: center;
         margin-bottom: 20px; }
-  .what-can-i-do .content {
+  .icons .content {
     align-self: center;
-    width: 860px; }
+    width: 860px;
+    margin-bottom: 40px; }
+    .icons .content h4 {
+      margin: auto;
+      width: 70%;
+      text-align: center; }
 
 @media only screen and (max-width: 768px) {
-  .what-can-i-do {
+  .icons {
     position: relative;
     overflow: hidden;
     width: calc(100% - 60px);
     padding: 0 30px;
     margin: 0; }
-    .what-can-i-do .content {
+    .icons .background {
+      height: 495px; }
+      .icons .background.animate {
+        clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%); }
+    .icons .content {
       width: 100%;
-      z-index: 2; }
-      .what-can-i-do .content p.subtitle {
-        min-width: 200px;
-        max-width: 100%; }
-      .what-can-i-do .content p.description {
-        min-width: 200px;
-        max-width: 100%; }
-      .what-can-i-do .content a.sign-in {
-        margin: 40px 0; }
-    .what-can-i-do .content-grid {
+      z-index: 2;
+      margin-bottom: 10px; }
+      .icons .content h4 {
+        margin: auto;
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+        margin-top: 40px; }
+    .icons .content-grid {
       width: 100%; }
-      .what-can-i-do .content-grid .item {
-        width: 100%; }
-    .what-can-i-do .phone {
-      z-index: 1;
-      margin: 0;
-      align-self: flex-start;
-      margin-top: 50px;
-      left: 130px;
-      width: 220px;
-      height: auto; } }
+      .icons .content-grid .item {
+        width: 45%;
+        margin-bottom: 20px; }
+        .icons .content-grid .item img {
+          width: 100px; } }
 
-.benefits {
+.package {
   display: flex;
   flex-flow: row;
   margin: 0;
@@ -676,21 +512,25 @@ p {
   padding: 80px 0 0 0;
   background-color: #f7f8f8;
   width: 100%; }
-  .benefits .benefits-holder {
+  .package .package-holder {
     width: 860px;
     display: flex;
     flex-flow: row; }
-    .benefits .benefits-holder .content-phone {
+    .package .package-holder .content-phone {
       position: relative;
       display: flex;
       flex-flow: column;
       width: 55%; }
-      .benefits .benefits-holder .content-phone img.phone {
+      .package .package-holder .content-phone img.phone {
         margin: 0;
         align-self: flex-start;
         width: 304px;
-        height: auto; }
-      .benefits .benefits-holder .content-phone .sign-up {
+        height: auto;
+        transform: translateY(150px);
+        transition: all 0.75s cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+        .package .package-holder .content-phone img.phone.animate {
+          transform: translateY(0); }
+      .package .package-holder .content-phone .sign-up {
         position: absolute;
         z-index: 9;
         display: block;
@@ -708,58 +548,63 @@ p {
         text-decoration: none;
         font-size: 14px;
         text-transform: uppercase;
-        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1); }
-        .benefits .benefits-holder .content-phone .sign-up:hover {
+        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1), 0 6px 15px 0 rgba(0, 0, 0, 0.1);
+        transform: translateY(150px);
+        transition-delay: 0.35s;
+        transition: all 0.75s cubic-bezier(0.87, -0.41, 0.19, 1.44); }
+        .package .package-holder .content-phone .sign-up.animate {
+          transform: translateY(0); }
+        .package .package-holder .content-phone .sign-up:hover {
           background-color: #015a9e;
           transform: scale(1);
           color: #ffffff;
           box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3), 0 6px 15px 0 rgba(0, 0, 0, 0.3); }
-    .benefits .benefits-holder .content {
+    .package .package-holder .content {
       display: flex;
       flex-flow: column;
       flex-grow: 1;
       width: 45%; }
-      .benefits .benefits-holder .content .item {
+      .package .package-holder .content .item {
         margin-top: 30px; }
-        .benefits .benefits-holder .content .item .title {
+        .package .package-holder .content .item .title {
           color: #0398e1;
           text-transform: uppercase;
           font-size: 18px;
           font-weight: 500; }
-        .benefits .benefits-holder .content .item .description {
+        .package .package-holder .content .item .description {
           font-size: 13px;
           font-weight: 400;
           margin-bottom: 20px; }
 
 @media only screen and (max-width: 768px) {
-  .benefits {
-    flex-flow: row;
+  .package {
+    flex-flow: row-reverse;
     margin: 0;
     justify-content: center;
-    padding: 80px 0 0 0;
+    padding: 40px 0 0 0;
     background-color: #f7f8f8;
-    width: 100%;
-    padding-bottom: 30px; }
-    .benefits .benefits-holder {
-      flex-flow: column; }
-      .benefits .benefits-holder .content {
+    width: 100%; }
+    .package .package-holder {
+      flex-flow: column-reverse; }
+      .package .package-holder .content {
         margin-left: 30px;
         width: calc(100% - 60px);
-        z-index: 2; }
-        .benefits .benefits-holder .content p.subtitle {
+        z-index: 2;
+        max-width: 450px; }
+        .package .package-holder .content p.subtitle {
           min-width: 200px;
           max-width: 100%; }
-        .benefits .benefits-holder .content p.description {
+        .package .package-holder .content p.description {
           min-width: 200px;
           max-width: 100%; }
-        .benefits .benefits-holder .content a.sign-in {
+        .package .package-holder .content a.sign-in {
           margin: 40px 0; }
-      .benefits .benefits-holder .content-phone {
+      .package .package-holder .content-phone {
         width: 100%;
         margin-bottom: 30px; }
-        .benefits .benefits-holder .content-phone img.phone {
+        .package .package-holder .content-phone img.phone {
           align-self: center; }
-        .benefits .benefits-holder .content-phone .sign-up {
+        .package .package-holder .content-phone .sign-up {
           left: calc(50% - 80px); } }
 
 .footer {
